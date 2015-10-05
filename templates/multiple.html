@@ -1,0 +1,81 @@
+$def with(trains)
+<html>
+<head>
+<style>
+table {
+  font-size: 12px;
+  text-align: center;
+}
+.th {
+  background-color: #288CCC;
+  color: #FFF;
+}
+</style>
+</head>
+
+<body>
+<form method="post">
+开始日期 <input type="text" name="date" value="2015-01-27">
+持续天数 <input type="text" name="duration" value="10">
+车次 <input type="text" name="train" value="Z49">
+<input type="submit" value="提交">
+</form>
+
+<table>
+<thead>
+<tr class="th">
+  <th width="90">车次</th>
+  <th width="100"><div class="two-line"><span>出发站</span><br clear="none" /><span>到达站</span></div></th>
+  <th width="82"><div class="two-line" id="startendtime"><span>出发时间</span><br clear="none" /><span>到达时间</span></div></th>
+  <th width="82"><span class="b2" id="_span_lishi">历时</span></th>
+  <th width="49">商务座</th>
+  <th width="49">特等座</th>
+  <th width="49">一等座</th>
+  <th width="49">二等座</th>
+  <th width="49">高级<br clear="none" />
+  软卧</th>
+  <th width="49">软卧</th>
+  <th width="49">硬卧</th>
+  <th width="49">软座</th>
+  <th width="49">硬座</th>
+  <th width="49">无座</th>
+  <th width="49">其它</th>
+  <th class="last">备注</th>
+</tr>
+</thead>
+<tbody id="_query_table_datas"></tbody>
+
+$for train in trains:
+  <tr class="" id="$train['train_no']">
+    <td  class="train">
+    $train['station_train_code']
+    </td>
+    <td class="cdz">
+        <strong class="start-t">$train['start_station_name']</strong><br>
+        <strong>$train['end_station_name']</strong>          
+    </td>
+    <td class="cds">
+        <strong class="start-t">$train['start_time']</strong><br>
+        <strong>$train['arrive_time']</strong>
+    </td>
+    <td class="ls">
+        <strong>$train['lishi']</strong>
+        <span></span>
+    </td>
+    <td width="49"><span>$train['swz_num']</span></td> 
+    <td width="49"><span>$train['tz_num']</span></td>
+    <td width="49"><span>$train['zy_num']</span></td>
+    <td width="49"><span>$train['ze_num']</span></td>
+    <td width="49"><span>$train['gg_num']</span></td>
+    <td width="49"><span>$train['rw_num']</span></td>
+    <td width="49"><span>$train['yw_num']</span></td>
+    <td width="49"><span>$train['rz_num']</span></td>
+    <td width="49"><span>$train['yz_num']</span></td>
+    <td width="49"><span>$train['wz_num']</span></td>
+    <td width="49"><span>$train['qt_num']</span></td>
+  </tr>
+
+</table>
+
+</body>
+</html>
